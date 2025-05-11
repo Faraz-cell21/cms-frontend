@@ -38,14 +38,12 @@ function CreateCourse() {
     setLoading(true);
     setMessage("");
 
-    // Validate required fields before submitting
     if (!formData.title || !formData.description || !formData.instructor || !formData.startDate || !formData.creditHours) {
       setMessage({ type: "error", text: "All fields, including Credit Hours, are required." });
       setLoading(false);
       return;
     }
 
-    // Validate creditHours is a valid number
     const validCreditHours = ["3", "4"];
     if (!validCreditHours.includes(formData.creditHours)) {
       setMessage({ type: "error", text: "Invalid Credit Hours selected." });
@@ -53,7 +51,7 @@ function CreateCourse() {
       return;
     }
 
-    console.log("Submitting course data:", formData); // ✅ Debugging log
+    console.log("Submitting course data:", formData); //  Debugging log
 
     try {
       const res = await axios.post("http://localhost:5000/api/admin/courses", formData, {
@@ -75,7 +73,6 @@ function CreateCourse() {
         <h1 className="text-3xl font-bold text-blue-600 mb-6 text-center">Create Course</h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* 📌 Course Title */}
           <div>
             <label className="block font-medium text-gray-700 mb-1">Title</label>
             <input
@@ -89,7 +86,6 @@ function CreateCourse() {
             />
           </div>
 
-          {/* 📌 Course Description */}
           <div>
             <label className="block font-medium text-gray-700 mb-1">Description</label>
             <textarea
@@ -102,7 +98,6 @@ function CreateCourse() {
             ></textarea>
           </div>
 
-          {/* 👨‍🏫 Instructor Dropdown */}
           <div>
             <label className="block font-medium text-gray-700 mb-1">Instructor</label>
             <select
@@ -121,7 +116,6 @@ function CreateCourse() {
             </select>
           </div>
 
-          {/* 📅 Course Start Date */}
           <div>
             <label className="block font-medium text-gray-700 mb-1">Start Date</label>
             <input
@@ -134,7 +128,6 @@ function CreateCourse() {
             />
           </div>
 
-          {/* ⏳ Credit Hours Dropdown */}
           <div>
             <label className="block font-medium text-gray-700 mb-1">Credit Hours</label>
             <select
@@ -150,7 +143,6 @@ function CreateCourse() {
             </select>
           </div>
 
-          {/* ✅ Submit Button */}
           <button
             type="submit"
             className="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200"
@@ -160,7 +152,6 @@ function CreateCourse() {
           </button>
         </form>
 
-        {/* Message Display */}
         {message && (
           <p className={`mt-4 text-center text-lg font-medium ${message.type === "success" ? "text-green-600" : "text-red-600"}`}>
             {message.text}

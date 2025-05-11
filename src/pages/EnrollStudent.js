@@ -107,7 +107,6 @@ function EnrollStudent() {
           </button>
         </form>
 
-        {/* Message Display */}
         {message && (
           <p
             className={`mt-4 text-center text-lg font-medium ${

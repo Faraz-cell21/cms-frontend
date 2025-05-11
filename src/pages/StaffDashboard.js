@@ -34,7 +34,6 @@ function StaffDashboard() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-6">
-      {/* 🏫 Header Section */}
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-blue-700">📚 Staff Dashboard</h1>
         <p className="text-gray-700 text-lg mt-2">
@@ -42,7 +41,6 @@ function StaffDashboard() {
         </p>
       </div>
 
-      {/* 📌 Manage Assignments Button */}
       <div className="flex justify-center gap-4">
         <Link to="/staff/assignments">
           <button className="px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 shadow-lg transition flex items-center space-x-2">
@@ -50,7 +48,6 @@ function StaffDashboard() {
           </button>
         </Link>
 
-        {/* ✅ View Submitted Assignments Button */}
         <Link to="/staff/submitted-assignments">
           <button className="px-6 py-3 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 shadow-lg transition flex items-center space-x-2">
             <MdAssignment className="text-xl" /> <span>View Submitted Assignments</span>
@@ -58,7 +55,7 @@ function StaffDashboard() {
         </Link>
       </div>
 
-      {/* 📚 Courses Section */}
+
       {courses.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
           {courses.map((course) => (
@@ -66,7 +63,6 @@ function StaffDashboard() {
               key={course.courseId}
               className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all border border-gray-200"
             >
-              {/* 📌 Course Title */}
               <h2 className="text-2xl font-semibold text-blue-700 flex items-center">
                 <FaChalkboardTeacher className="mr-2 text-blue-500" /> {course.courseTitle}
               </h2>
@@ -79,21 +75,17 @@ function StaffDashboard() {
                 {course.startDate ? new Date(course.startDate).toLocaleDateString() : "Not Available"}
               </p>
 
-              {/* 📌 Credit Hours */}
               <p className="text-gray-700 font-semibold mt-1">
                 Credit Hours: {course.creditHours || "N/A"}
               </p>
 
-              {/* 📌 Action Buttons */}
               <div className="mt-4 flex flex-wrap gap-3">
-                {/* 👨‍🎓 View Enrolled Students */}
                 <Link to={`/staff/courses/${course.courseId}/students`}>
                   <button className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition flex items-center space-x-2">
                     <FaUsers className="text-lg" /> <span>View Students</span>
                   </button>
                 </Link>
 
-                {/* 📌 View Course Details */}
                 <button
                   onClick={() => navigate(`/staff/course/${course.courseId}/details`)}
                   className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition flex items-center space-x-2"
@@ -101,7 +93,6 @@ function StaffDashboard() {
                   <FaClipboardList className="text-lg" /> <span>View Course</span>
                 </button>
 
-                {/* 📝 Mark Attendance */}
                 <Link to={`/staff/courses/${course.courseId}/attendance`}>
                   <button className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition flex items-center space-x-2">
                     <IoCheckmarkCircleOutline className="text-lg" /> <span>Mark Attendance</span>

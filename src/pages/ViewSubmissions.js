@@ -41,7 +41,6 @@ function ViewSubmissions() {
                 <p className="text-gray-600">{submission.student.email}</p>
                 <p className="text-gray-700 mt-2">📅 Submitted on: {new Date(submission.submittedAt).toLocaleDateString()}</p>
 
-                {/* 📥 Download Button */}
                 <a
                   href={submission.fileUrl}
                   target="_blank"
@@ -57,7 +56,6 @@ function ViewSubmissions() {
           <p className="text-gray-500 text-center">No submissions found.</p>
         )}
 
-        {/* 🔙 Back Button */}
         <button
           onClick={() => window.history.back()}
           className="mt-6 w-full px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition"

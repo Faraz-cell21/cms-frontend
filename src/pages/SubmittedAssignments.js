@@ -38,14 +38,12 @@ function SubmittedAssignments() {
                         <h2 className="text-lg font-semibold text-gray-800">{assignment.title}</h2>
                         <p className="text-gray-600">Course: {assignment.courseTitle}</p>
 
-                        {/* 📝 View Submissions Button */}
                         <Link to={`/staff/assignments/${assignment.assignmentId}/submissions`}>
                             <button className="mt-2 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
                                 View Submissions
                             </button>
                         </Link>
 
-                        {/* 📌 Grade Assignment Button */}
                         <Link to={`/staff/assignments/${assignment.assignmentId}/grade`}>
                             <button className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition ml-2">
                                 Grade Assignment
@@ -59,7 +57,6 @@ function SubmittedAssignments() {
     )}
 
 
-        {/* 🔙 Back Button */}
         <button
           onClick={() => window.history.back()}
           className="mt-6 w-full px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition"

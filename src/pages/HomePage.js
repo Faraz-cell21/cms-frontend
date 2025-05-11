@@ -44,20 +44,16 @@ function HomePage() {
 
   return (
     <div className="relative min-h-screen bg-gray-300 overflow-hidden">
-      {/* 🔷 Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{ backgroundImage: "url('/image.jpg')" }}
       ></div>
 
-      {/* 🔷 Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-30 z-0 backdrop-blur-sm"></div>
 
-      {/* 🔷 Centered Card */}
       <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
         <div className="w-full max-w-6xl bg-white bg-opacity-95 backdrop-blur-md shadow-2xl rounded-lg p-10 flex flex-col md:flex-row items-center justify-between gap-10 border border-blue-100">
           
-          {/* 🏫 CMS Intro */}
           <div className="md:w-1/2 space-y-5">
             <h2 className="text-4xl font-bold text-blue-700">Campus Management System</h2>
             <p className="text-gray-700 text-justify">
@@ -80,12 +76,10 @@ function HomePage() {
             </ul>
           </div>
 
-          {/* 🔐 Login Form */}
           <div className="md:w-1/2 w-full bg-white p-6 rounded-lg shadow-md border border-gray-200">
             <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">Login</h2>
             <form onSubmit={handleLogin} className="space-y-4">
               
-              {/* Email */}
               <div className="relative">
                 <FaUser className="absolute left-3 top-3 text-gray-500" />
                 <input
@@ -98,7 +92,6 @@ function HomePage() {
                 />
               </div>
 
-              {/* Password */}
               <div className="relative">
                 <FaLock className="absolute left-3 top-3 text-gray-500" />
                 <input
@@ -115,7 +108,6 @@ function HomePage() {
                 />
               </div>
 
-              {/* Submit */}
               <button
                 type="submit"
                 className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
@@ -128,7 +120,6 @@ function HomePage() {
                 )}
               </button>
 
-              {/* Error */}
               {error && <p className="text-red-600 text-sm text-center mt-2">{error}</p>}
             </form>
           </div>

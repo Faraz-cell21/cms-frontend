@@ -6,7 +6,6 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Bar, Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Tooltip, Legend } from "chart.js";
 
-// Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Tooltip, Legend);
 
 function AdminDashboard() {
@@ -32,7 +31,6 @@ function AdminDashboard() {
         const res = await axios.get("http://localhost:5000/api/admin/dashboard", { withCredentials: true });
         setStats(res.data);
 
-        // Fetch course & assignment data
         const courseRes = await axios.get("http://localhost:5000/api/admin/courses", { withCredentials: true });
         setCourseData(courseRes.data || []);
 
@@ -50,7 +48,6 @@ function AdminDashboard() {
   if (loading) return <h1 className="text-center text-blue-600 text-xl">Loading...</h1>;
   if (error) return <h1 className="text-center text-red-600 text-xl">{error}</h1>;
 
-  //  Students per Course
   const studentPerCourseChart = {
     labels: courseData.length ? courseData.map(course => course.title) : ["No Courses"],
     datasets: [
@@ -64,7 +61,6 @@ function AdminDashboard() {
     ],
   };
 
-  //Graded vs. Ungraded Assignments
   const gradedAssignments = assignmentData.reduce((acc, assignment) => {
     const graded = assignment.submissions.filter(sub => sub.grade).length;
     const ungraded = assignment.submissions.length - graded;
@@ -83,7 +79,6 @@ function AdminDashboard() {
 
   return (
     <div className="min-h-screen flex bg-gray-100">
-      {/* Sidebar Navigation */}
 <div className={`fixed inset-y-0 left-0 transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 transition-transform duration-300 ease-in-out bg-gradient-to-b from-blue-700 to-blue-900 text-white w-64 p-6 shadow-lg md:block`}>
   <button onClick={() => setIsSidebarOpen(false)} className="absolute top-4 right-4 md:hidden">
     <XMarkIcon className="h-6 w-6 text-white" />
@@ -96,7 +91,6 @@ function AdminDashboard() {
     <li><button onClick={() => navigate("/admin/manage-courses")} className="w-full text-left">Manage Courses</button></li>
     <li><button onClick={() => navigate("/admin/instructors")} className="w-full text-left">View Instructors</button></li>
     <li><button onClick={() => navigate("/admin/students")} className="w-full text-left">View Students</button></li>
-    {/* 📌 Newly Added Create User Button */}
     <li>
       <button 
         onClick={() => navigate("/admin/create-user")} 
@@ -109,7 +103,6 @@ function AdminDashboard() {
 </div>
 
 
-      {/* Main Content */}
       <div className="flex-1 p-6 ml-0 md:ml-64 transition-all duration-300 ease-in-out">
         {!isSidebarOpen && (
           <button 
@@ -122,7 +115,6 @@ function AdminDashboard() {
         <h1 className="text-3xl font-bold text-blue-700 mb-4">Admin Dashboard</h1>
         <p>Welcome, {user?.name}</p>
 
-        {/* Image Banner */}
         <div className="w-full overflow-hidden rounded-lg shadow-md mb-6">
           <img src="/campusUni.jpg" 
             alt="Campus" 
@@ -130,7 +122,6 @@ function AdminDashboard() {
           />
         </div>
 
-        {/* Quick Stats */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           <div className="bg-white p-4 rounded shadow">
             <h2 className="text-lg font-semibold mb-2 text-blue-700">Total Users</h2>
@@ -154,7 +145,6 @@ function AdminDashboard() {
           </div>
         </div>
 
-        {/* 📢 Create Announcement Button */}
         <div className="mt-6 flex justify-center">
           <button
             onClick={() => navigate("/admin/announcements")}
@@ -164,7 +154,6 @@ function AdminDashboard() {
           </button>
         </div>
 
-        {/* 📊 Graphical Data Representation */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
           <div className="bg-white p-6 rounded shadow">
             <h2 className="text-lg font-semibold mb-4 text-center">Students Per Course</h2>

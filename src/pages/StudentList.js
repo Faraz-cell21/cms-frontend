@@ -14,10 +14,10 @@ function StudentList() {
       try {
         const res = await axios.get("http://localhost:5000/api/admin/students", { withCredentials: true });
         
-        console.log("Fetched Students Data:", res.data); // ✅ Debugging Log
+        console.log("Fetched Students Data:", res.data); //Debugging Log
         
         setStudents(res.data);
-        setFilteredStudents(res.data); // Initially set filtered students
+        setFilteredStudents(res.data);
       } catch (error) {
         console.error("Error fetching students", error);
       }
@@ -27,14 +27,12 @@ function StudentList() {
   }, []);
   
 
-  // Search filter & sorting
   useEffect(() => {
     let filtered = students.filter((student) =>
       student.name.toLowerCase().includes(search.toLowerCase()) ||
       student.email.toLowerCase().includes(search.toLowerCase())
     );
 
-    // Sorting logic
     filtered = filtered.sort((a, b) => (a[sortBy] > b[sortBy] ? 1 : -1));
     setFilteredStudents(filtered);
   }, [search, sortBy, students]);
@@ -43,7 +41,6 @@ function StudentList() {
     <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
       <h1 className="text-4xl font-bold text-blue-700 mb-6">Student List</h1>
 
-      {/* 🔎 Search & Sorting */}
       <div className="flex flex-col md:flex-row items-center gap-4 w-full max-w-4xl">
         <input
           type="text"
@@ -63,7 +60,6 @@ function StudentList() {
         </select>
       </div>
 
-      {/* 📌 Student List */}
       <div className="w-full max-w-4xl mt-6">
         {filteredStudents.length > 0 ? (
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -83,9 +79,9 @@ function StudentList() {
     <tr key={student._id} className="border-b hover:bg-gray-100">
       <td className="py-3 px-6">{student.name}</td>
       <td className="py-3 px-6">{student.email}</td>
-      <td className="py-3 px-6">{student.course || "Not Set"}</td>  {/* ✅ Fixed */}
-      <td className="py-3 px-6">{student.session || "Not Set"}</td>  {/* ✅ Fixed */}
-      <td className="py-3 px-6">{student.semester || "Not Set"}</td>  {/* ✅ Fixed */}
+      <td className="py-3 px-6">{student.course || "Not Set"}</td> 
+      <td className="py-3 px-6">{student.session || "Not Set"}</td>
+      <td className="py-3 px-6">{student.semester || "Not Set"}</td>
       <td className="py-3 px-6">
         <button
           onClick={() => navigate(`/admin/edit-student/${student._id}`)}

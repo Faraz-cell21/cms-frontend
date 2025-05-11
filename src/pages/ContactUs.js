@@ -21,7 +21,6 @@ function ContactUs() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
       <div className="max-w-5xl w-full bg-white shadow-lg rounded-lg overflow-hidden flex flex-col md:flex-row">
-        {/* Left Side - Contact Info */}
         <div className="w-full md:w-1/2 bg-blue-600 text-white p-8">
           <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
           <p className="text-gray-200 mb-6">
@@ -43,7 +42,6 @@ function ContactUs() {
           </div>
         </div>
 
-        {/* Right Side - Contact Form */}
         <div className="w-full md:w-1/2 p-8">
           <h2 className="text-2xl font-semibold text-gray-700 mb-6">Send a Message</h2>
           <form onSubmit={handleSubmit} className="space-y-4">

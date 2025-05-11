@@ -32,18 +32,15 @@ function CourseDetails() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-100 to-gray-50 p-6">
       <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-        {/* 📌 Course Title */}
         <h1 className="text-3xl font-bold text-blue-600">{course.title}</h1>
         <p className="text-gray-700 mt-2">{course.description}</p>
 
-        {/* 👨‍🏫 Instructor */}
         <div className="mt-6 flex items-center">
           <FaUserTie className="text-blue-500 text-lg mr-2" />
           <h3 className="text-lg font-semibold">Instructor:</h3>
         </div>
         <p className="text-gray-700">{course.instructor?.name || "Not Assigned"}</p>
 
-        {/* 👨‍🎓 Enrolled Students */}
         <div className="mt-6">
           <div className="flex items-center">
             <FaUserGraduate className="text-green-500 text-lg mr-2" />
@@ -52,20 +49,19 @@ function CourseDetails() {
           {course.studentsEnrolled.length > 0 ? (
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-2">
               {course.studentsEnrolled
-  .filter((entry) => entry.student) // Filter out null students
-  .map((student) => (
-    <li key={student.student._id} className="bg-gray-100 p-3 rounded-md shadow-sm">
-      <span className="font-medium">{student.student.name}</span>
-      <span className="text-gray-500 text-sm block">{student.student.email}</span>
-    </li>
-))}
+                .filter((entry) => entry.student)
+                .map((student) => (
+                <li key={student.student._id} className="bg-gray-100 p-3 rounded-md shadow-sm">
+                  <span className="font-medium">{student.student.name}</span>
+                  <span className="text-gray-500 text-sm block">{student.student.email}</span>
+                </li>
+              ))}
             </ul>
           ) : (
             <p className="text-gray-500 mt-2">No students enrolled.</p>
           )}
         </div>
 
-        {/* 📝 Assignments Section */}
         <div className="mt-6">
           <div className="flex items-center">
             <FaFileAlt className="text-yellow-500 text-lg mr-2" />
@@ -105,7 +101,6 @@ function CourseDetails() {
           )}
         </div>
 
-        {/* 🔙 Back Button */}
         <button
           onClick={() => navigate("/staff")}
           className="mt-6 flex items-center px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition"

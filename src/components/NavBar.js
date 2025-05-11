@@ -7,7 +7,6 @@ function NavBar() {
   const navigate = useNavigate();
   const [dropdown, setDropdown] = useState(null);
 
-  // Define dropdown menu items
   const menuItems = {
     Academics: ["Programs", "Faculties"],
     Administration: ["VC Message"],
@@ -21,11 +20,9 @@ function NavBar() {
         <img src="/logo.png" alt="Logo" className="h-10" />
       </Link>
 
-      {/* Navigation Links */}
       <ul className="hidden md:flex space-x-6 text-gray-600">
         <li><Link to="/about" className="hover:text-black">About Gomal</Link></li>
 
-        {/* Dropdown Menus */}
         {Object.keys(menuItems).map((menu, index) => (
           <li
             key={index}
@@ -37,7 +34,6 @@ function NavBar() {
               {menu} ▼
             </Link>
 
-            {/* Dropdown Menu */}
             {dropdown === menu && (
               <div className="absolute left-0 mt-2 w-48 bg-white shadow-md rounded-lg py-2 z-50">
                 {menuItems[menu].map((item, subIndex) => (
@@ -58,7 +54,6 @@ function NavBar() {
         <li><Link to="/contact" className="hover:text-black">Contact us</Link></li>
       </ul>
 
-      {/* Right Section - User Menu & Login Button */}
       <div className="flex items-center space-x-4">
         {user ? (
           <div className="relative">

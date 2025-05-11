@@ -39,7 +39,7 @@ function AdminAnnouncements() {
       setTitle("");
       setContent("");
       setDueDate("");
-      fetchAnnouncements(); // Refresh the list
+      fetchAnnouncements();
     } catch (err) {
       setMessage({ type: "error", text: err.response?.data?.message || "Failed to create announcement" });
     }

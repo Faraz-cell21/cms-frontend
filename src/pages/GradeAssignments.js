@@ -1,17 +1,17 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom"; // Import useNavigate
+import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 function GradeAssignments() {
   const { user } = useContext(AuthContext);
   const { assignmentId } = useParams();
-  const navigate = useNavigate(); // ✅ Hook for redirection
+  const navigate = useNavigate();
   const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [gradeData, setGradeData] = useState({});
-  const [submitting, setSubmitting] = useState(false); // ✅ Submission loading state
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     const fetchSubmissions = async () => {
@@ -53,7 +53,6 @@ function GradeAssignments() {
   
       alert("Grade submitted successfully!");
   
-      // ✅ Refresh staff dashboard data immediately
       setSubmissions((prevSubmissions) =>
         prevSubmissions.map((submission) =>
           submission._id === submissionId
@@ -62,7 +61,6 @@ function GradeAssignments() {
         )
       );
   
-      // ✅ Redirect after a small delay
       setTimeout(() => {
         navigate("/staff");
       }, 500);
@@ -116,9 +114,9 @@ function GradeAssignments() {
               <button
                 onClick={() => submitGrade(submission._id)}
                 className="mt-3 px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-                disabled={submitting} // ✅ Disable button when submitting
+                disabled={submitting}
               >
-                {submitting ? "Submitting..." : "Submit Grade"} {/* ✅ Show loading state */}
+                {submitting ? "Submitting..." : "Submit Grade"}
               </button>
             </li>
           ))}

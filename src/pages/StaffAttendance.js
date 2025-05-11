@@ -43,7 +43,6 @@ function StaffAttendance() {
       );
       setMessage({ type: "success", text: "Attendance marked successfully!" });
 
-      // Reset form after success
       setSelectedStudent("");
       setStatus("present");
     } catch (err) {
@@ -99,14 +98,12 @@ function StaffAttendance() {
           Mark Attendance
         </button>
 
-        {/* Display messages */}
         {message && (
           <p className={`mt-4 text-center text-lg font-medium ${message.type === "success" ? "text-green-600" : "text-red-600"}`}>
             {message.text}
           </p>
         )}
 
-        {/* Back to Staff Dashboard */}
         <button
           onClick={() => navigate("/staff")}
           className="mt-4 w-full px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition"

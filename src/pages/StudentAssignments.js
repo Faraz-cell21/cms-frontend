@@ -29,7 +29,6 @@ function StudentAssignments() {
     fetchAssignments();
   }, []);
 
-  // Handle File Selection
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file && file.size > 10 * 1024 * 1024) {
@@ -37,16 +36,14 @@ function StudentAssignments() {
       setSelectedFile(null);
     } else {
       setSelectedFile(file);
-      setError(""); // Clear error if file is valid
+      setError("");
     }
   };
 
-  // Handle Assignment Selection
   const handleAssignmentSelect = (event) => {
     setSelectedAssignment(event.target.value);
   };
 
-  // Submit Assignment
   const submitAssignment = async (e) => {
     e.preventDefault();
     if (!selectedAssignment || !selectedFile) {
@@ -55,7 +52,7 @@ function StudentAssignments() {
     }
 
     setSubmitting(true);
-    setError(""); // Clear any previous errors
+    setError(""); 
     const formData = new FormData();
     formData.append("assignmentFile", selectedFile);
 
@@ -92,7 +89,6 @@ function StudentAssignments() {
           Welcome, <span className="font-semibold">{user?.name}</span>
         </p>
 
-        {/* 🔹 Assignment List */}
         {assignments.length > 0 ? (
           <ul className="space-y-4">
             {assignments.map((assignment) => (
@@ -109,13 +105,11 @@ function StudentAssignments() {
           <p className="text-gray-500 text-center">No assignments available.</p>
         )}
 
-        {/* 📌 Assignment Submission Form */}
         <div className="mt-6">
           <h2 className="text-xl font-semibold text-center">Submit Assignment</h2>
           {error && <p className="text-red-500 text-center mt-2">{error}</p>}
 
           <form onSubmit={submitAssignment} className="bg-gray-50 p-6 rounded-lg shadow space-y-4 mt-4">
-            {/* Select Assignment Dropdown */}
             <div>
               <label className="block text-gray-700">📂 Select Assignment</label>
               <select
@@ -133,7 +127,6 @@ function StudentAssignments() {
               </select>
             </div>
 
-            {/* File Upload */}
             <div>
               <label className="block text-gray-700">📎 Upload File</label>
               <input
@@ -146,7 +139,6 @@ function StudentAssignments() {
               <p className="text-sm text-gray-500 mt-1">Allowed: PDF, DOCX, TXT (Max: 10MB)</p>
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               className={`w-full px-6 py-2 rounded-lg text-white transition ${

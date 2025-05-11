@@ -57,18 +57,15 @@ function StaffAssignments() {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
       <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg p-6">
-        {/* 🔥 Title */}
         <h1 className="text-3xl font-bold text-blue-600 text-center mb-6">Manage Assignments</h1>
         <p className="text-center text-gray-600 mb-4">Welcome, {user?.name}</p>
 
-        {/* 📌 Success/Error Message */}
         {message && (
           <div className={`text-center text-lg font-medium mb-4 p-3 rounded-md ${message.type === "success" ? "bg-green-100 text-green-600" : "bg-red-100 text-red-600"}`}>
             {message.text}
           </div>
         )}
 
-        {/* 📋 Assignment Form */}
         <form onSubmit={createAssignment} className="space-y-4 bg-gray-100 p-6 rounded-md">
           <h2 className="text-xl font-semibold text-gray-700">Create New Assignment</h2>
 
@@ -133,7 +130,6 @@ function StaffAssignments() {
           </button>
         </form>
 
-        {/* 📌 Existing Assignments */}
         <h2 className="text-2xl font-semibold mt-6 text-center text-gray-700">Existing Assignments</h2>
         {assignments.length > 0 ? (
           <ul className="mt-3 space-y-3">
@@ -151,7 +147,6 @@ function StaffAssignments() {
           <p className="text-center text-gray-500 mt-4">No assignments yet.</p>
         )}
 
-        {/* 🔙 Back Button */}
         <button
           onClick={() => navigate("/staff")}
           className="mt-6 w-full bg-gray-500 text-white py-2 rounded-md hover:bg-gray-600 transition"

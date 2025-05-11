@@ -41,7 +41,6 @@ function StudentDashboard() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-6">
-      {/* 🏫 Header Section */}
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-blue-700">🎓 Student Dashboard</h1>
         <p className="text-gray-700 text-lg mt-2">
@@ -49,7 +48,6 @@ function StudentDashboard() {
         </p>
       </div>
 
-      {/* 🏷️ Student Details Section */}
       <div className="bg-white p-4 rounded-lg shadow-md mb-6">
         <h2 className="text-xl font-semibold text-gray-800 flex items-center">
           <MdSchool className="mr-2 text-blue-600" /> Student Details
@@ -59,7 +57,6 @@ function StudentDashboard() {
         <p className="text-gray-700"><strong>Semester:</strong> {studentDetails.semester || "N/A"}</p>
       </div>
 
-      {/* 📊 Weekly Progress Bar Section */}
       <div className="mt-8">
         <h2 className="text-xl font-semibold text-gray-800 flex items-center">
           <FaChartLine className="mr-2 text-green-600" /> Weekly Progress
@@ -72,7 +69,6 @@ function StudentDashboard() {
         <p className="text-gray-700 font-bold mt-2">Progress: {weeklyProgress}%</p>
       </div>
 
-      {/* 🔔 Announcements Section */}
       <div className="mb-6">
         <h2 className="text-2xl font-semibold text-gray-800 flex items-center">
           <FaBell className="mr-2 text-yellow-500" /> Recent Announcements
@@ -91,7 +87,6 @@ function StudentDashboard() {
         )}
       </div>
 
-      {/* 📌 Enrolled Courses Section */}
       {courses.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
           {courses.map((course) => (
@@ -99,13 +94,11 @@ function StudentDashboard() {
     key={course.courseId}
     className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all border border-gray-200 flex flex-col justify-between"
   >
-    {/* 📌 Course Title */}
     <h2 className="text-2xl font-bold text-blue-700 flex items-center mb-1">
       <FaClipboardList className="mr-2 text-blue-500" />
       {course.courseTitle}
     </h2>
 
-    {/* 🔢 Meta Info */}
     <div className="text-gray-600 space-y-1 mb-4">
       <p className="flex items-center">
         <MdDateRange className="mr-2 text-gray-500" />
@@ -127,7 +120,6 @@ function StudentDashboard() {
       </p>
     </div>
 
-    {/* 📝 Assignments */}
     <div>
       <h3 className="text-lg font-semibold text-gray-800 flex items-center mb-2">
         <FaTasks className="mr-2 text-gray-700" /> Assignments
@@ -170,7 +162,6 @@ function StudentDashboard() {
       )}
     </div>
 
-    {/* 📅 Actions */}
     <div className="mt-6">
       <Link to={`/student/courses/${course.courseId}/attendance`}>
         <button className="w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition flex justify-center items-center gap-2">

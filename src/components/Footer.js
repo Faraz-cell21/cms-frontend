@@ -1,31 +1,3 @@
-// import React from "react";
-
-// function Footer() {
-//   return (
-//     <footer className="bg-gray-800 text-white py-6 mt-10">
-//       <div className="container mx-auto text-center space-y-2">
-//         <p className="text-lg font-semibold">&copy; 2025 CMS Platform. All rights reserved.</p>
-//         <p className="text-sm">Powered by MERN Stack</p>
-
-//         {/* Optional Social Links */}
-//         <div className="flex justify-center space-x-6 mt-2">
-//           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition">
-//             📘
-//           </a>
-//           <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition">
-//             🐦
-//           </a>
-//           <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition">
-//             🔗
-//           </a>
-//         </div>
-//       </div>
-//     </footer>
-//   );
-// }
-
-// export default Footer;
-
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -33,7 +5,6 @@ function Footer() {
   return (
     <footer className="bg-gray-800 text-white py-10">
       <div className="container mx-auto flex flex-wrap justify-around px-6">
-        {/* Gomal University Section */}
         <div className="w-full md:w-1/3 text-center md:text-left px-4 mb-6">
           <h3 className="text-xl font-bold mb-3">Gomal University</h3>
           <p className="text-gray-400 text-sm">
@@ -41,7 +12,6 @@ function Footer() {
           </p>
         </div>
 
-        {/* Useful Links */}
         <div className="w-full md:w-1/4 text-center md:text-left px-4 mb-6">
           <h3 className="text-lg font-semibold mb-3">Useful Links</h3>
           <ul className="space-y-2 text-gray-400">
@@ -54,7 +24,6 @@ function Footer() {
           </ul>
         </div>
 
-        {/* Contact Section */}
         <div className="w-full md:w-1/4 text-center md:text-left px-4">
           <h3 className="text-lg font-semibold mb-3">Connect with Us</h3>
           <ul className="space-y-2 text-gray-400">
@@ -69,7 +38,6 @@ function Footer() {
         </div>
       </div>
 
-      {/* Bottom Text */}
       <div className="bg-gray-900 text-center py-3">
         <p className="text-gray-400 text-sm">All rights reserved to owners</p>
       </div>

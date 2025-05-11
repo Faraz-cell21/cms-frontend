@@ -4,7 +4,7 @@ function Administration() {
         <h1 className="text-4xl font-bold text-blue-700 mb-8">Administration</h1>
   
         <section id="vc-message" className="bg-white rounded-xl shadow-lg overflow-hidden">
-          {/* Header with VC image placeholder and title */}
+
           <div className="bg-gradient-to-r from-blue-800 to-blue-600 p-6 text-white">
             <div className="flex flex-col md:flex-row items-center">
               <div className="w-32 h-32 rounded-full bg-white flex items-center justify-center mb-4 md:mb-0 md:mr-6">
@@ -20,7 +20,6 @@ function Administration() {
             </div>
           </div>
   
-          {/* Message Content */}
           <div className="p-6 md:p-8">
             <div className="prose max-w-none text-gray-700">
               <p className="text-lg font-medium text-blue-800 mb-6">
@@ -47,7 +46,6 @@ function Administration() {
               </div>
             </div>
   
-            {/* Signature */}
             <div className="mt-8 pt-6 border-t border-gray-200 text-right">
               <p className="text-gray-600 font-medium">Sincerely,</p>
               <p className="text-blue-800 font-bold text-lg">Prof. Dr. Shakeeb Ullah</p>

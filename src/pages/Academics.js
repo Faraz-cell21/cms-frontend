@@ -9,7 +9,7 @@ function Academics() {
           Explore our range of undergraduate and postgraduate programs across disciplines tailored for academic excellence and career readiness.
         </p>
         
-        {/* Bachelor Programs of Sciences */}
+        {/* Bachelor Programs of Sciences*/}
         <div className="mb-12">
           <h3 className="text-xl font-semibold mb-6 text-blue-600">Bachelor Programs of Sciences</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

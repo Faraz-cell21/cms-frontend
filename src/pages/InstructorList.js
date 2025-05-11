@@ -25,7 +25,6 @@ function InstructorList() {
     fetchInstructors();
   }, []);
 
-  // Search & sorting
   useEffect(() => {
     let filtered = instructors.filter((inst) =>
       inst.name.toLowerCase().includes(search.toLowerCase()) ||

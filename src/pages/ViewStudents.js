@@ -18,7 +18,7 @@ function ViewStudents() {
           withCredentials: true,
         });
         setStudents(res.data.enrolledStudents);
-        setFilteredStudents(res.data.enrolledStudents); // Initialize filter with full list
+        setFilteredStudents(res.data.enrolledStudents);
       } catch (err) {
         setError("Failed to load students.");
       }
@@ -28,7 +28,6 @@ function ViewStudents() {
     fetchStudents();
   }, [courseId]);
 
-  // 📝 Search Functionality
   useEffect(() => {
     const results = students.filter(student =>
       student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -45,7 +44,6 @@ function ViewStudents() {
       <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
         <h1 className="text-3xl font-bold text-blue-600 mb-4 text-center">Enrolled Students</h1>
 
-        {/* 🔍 Search Input */}
         <input
           type="text"
           placeholder="Search students..."
@@ -54,7 +52,6 @@ function ViewStudents() {
           className="w-full p-3 border border-gray-300 rounded-md mb-4"
         />
 
-        {/* 📋 Student List */}
         {filteredStudents.length > 0 ? (
           <div className="overflow-x-auto">
             <table className="w-full border-collapse border border-gray-300">
@@ -78,7 +75,6 @@ function ViewStudents() {
           <p className="text-gray-500 text-center">No students enrolled.</p>
         )}
 
-        {/* 🔙 Back Button */}
         <button
           onClick={() => navigate("/staff")}
           className="mt-6 w-full bg-gray-500 text-white py-2 rounded-md hover:bg-gray-600 transition"

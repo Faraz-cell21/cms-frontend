@@ -53,7 +53,6 @@ function StudentAttendance() {
           <p className="text-gray-500 text-center">No attendance records found.</p>
         )}
 
-        {/* Back to Dashboard Button */}
         <button
           onClick={() => navigate("/student")}
           className="mt-6 w-full px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition"

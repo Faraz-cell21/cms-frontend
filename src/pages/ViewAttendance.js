@@ -8,7 +8,7 @@ function ViewAttendance() {
   const { courseId } = useParams();
   const navigate = useNavigate();
   const [attendanceRecords, setAttendanceRecords] = useState([]);
-  const [filteredRecords, setFilteredRecords] = useState([]); // ✅ For search functionality
+  const [filteredRecords, setFilteredRecords] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -21,9 +21,9 @@ function ViewAttendance() {
           { withCredentials: true }
         );
 
-        console.log("API Response:", res.data); // Debugging response ✅
+        console.log("API Response:", res.data); // Debugging response
         setAttendanceRecords(res.data);
-        setFilteredRecords(res.data); // ✅ Initially, filtered data is the same as full data
+        setFilteredRecords(res.data);
       } catch (err) {
         setError("Failed to load attendance records.");
       }
@@ -33,7 +33,6 @@ function ViewAttendance() {
     fetchAttendance();
   }, [courseId]);
 
-  // 🔍 Search Handler
   const handleSearch = (e) => {
     const query = e.target.value.toLowerCase();
     setSearchQuery(query);
@@ -52,10 +51,8 @@ function ViewAttendance() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-6">
       <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
-        {/* 📌 Header */}
         <h1 className="text-3xl font-bold text-blue-600 text-center mb-4">📅 Attendance Records</h1>
 
-        {/* 🔍 Search Bar */}
         <div className="relative mb-4">
           <input
             type="text"
@@ -67,7 +64,6 @@ function ViewAttendance() {
           <FaSearch className="absolute right-3 top-3 text-gray-500" />
         </div>
 
-        {/* 📜 Attendance List */}
         {filteredRecords.length > 0 ? (
           <ul className="list-none space-y-4">
             {filteredRecords.map((record) => (
@@ -75,7 +71,6 @@ function ViewAttendance() {
                 <h2 className="text-lg font-semibold text-gray-800">{record.student.name}</h2>
                 <p className="text-gray-600">{record.student.email}</p>
 
-                {/* 📌 Attendance List */}
                 <ul className="mt-2 space-y-2">
                   {record.attendance.map((att) => (
                     <li key={att._id} className="flex justify-between p-2 bg-white rounded-md shadow-sm border border-gray-200">
@@ -103,7 +98,6 @@ function ViewAttendance() {
           <p className="text-gray-500 text-center">No attendance records found.</p>
         )}
 
-        {/* Back to Dashboard Button */}
         <button
           onClick={() => navigate("/staff")}
           className="mt-6 w-full px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition"

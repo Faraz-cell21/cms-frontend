@@ -15,7 +15,6 @@ function LoginPage() {
     e.preventDefault();
     setError("");
     
-    // Password validation
     if (password.length < 8 || password.length > 15) {
       setError("Password must be between 8 and 15 characters long.");
       return;
@@ -41,16 +40,12 @@ function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-white p-6">
       <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
         
-        {/* Title */}
         <h2 className="text-3xl font-bold text-center text-blue-600 mb-6">🔐 Login</h2>
 
-        {/* Error Message */}
         {error && <p className="text-red-500 text-center bg-red-100 p-2 rounded-md">{error}</p>}
 
-        {/* Login Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
           
-          {/* Email Input */}
           <div className="relative">
             <FaUser className="absolute left-3 top-3 text-gray-500" />
             <input
@@ -63,7 +58,6 @@ function LoginPage() {
             />
           </div>
 
-          {/* Password Input */}
           <div className="relative">
             <FaLock className="absolute left-3 top-3 text-gray-500" />
             <input
@@ -80,7 +74,6 @@ function LoginPage() {
             />
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
             className="w-full flex items-center justify-center bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300"
@@ -94,7 +87,6 @@ function LoginPage() {
           </button>
         </form>
 
-        {/* Forgot Password & Sign Up */}
         <div className="text-center mt-4">
           <p className="text-gray-600">
             Forgot password? <span className="text-blue-500 hover:underline cursor-pointer">Reset here</span>

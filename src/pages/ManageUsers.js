@@ -43,7 +43,6 @@ function ManageUsers() {
 
       {message && <p className="mt-4 text-center">{message}</p>}
     </div>
-    
   );
 }
 

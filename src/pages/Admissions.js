@@ -575,7 +575,7 @@ function Admissions() {
         </ul>
       </div>
 
-      {/* Support Services */}
+      {/* Support Services*/}
       <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-lg transition-shadow">
         <h3 className="text-xl font-semibold mb-3 text-blue-600">Comprehensive Support Services</h3>
         <ul className="text-gray-700 space-y-2">

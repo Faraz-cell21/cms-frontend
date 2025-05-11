@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
 function UpdateCourse() {
-  const { courseId } = useParams(); // Get Course ID from URL
+  const { courseId } = useParams();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ title: "", description: "", instructor: "" });
   const [instructors, setInstructors] = useState([]);

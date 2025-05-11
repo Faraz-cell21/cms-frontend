@@ -7,7 +7,7 @@ const CreateUser = () => {
     name: "",
     email: "",
     password: "",
-    role: "student", // Default role
+    role: "student",
     course: "",
     session: "",
     semester: "",
@@ -21,7 +21,6 @@ const CreateUser = () => {
     const { name, value } = e.target;
     let updatedFormData = { ...formData, [name]: value };
 
-    // If session changes, update semester automatically
     if (name === "session") {
       let semester = "";
       if (value === "21-25") semester = "8th";
@@ -41,7 +40,6 @@ const CreateUser = () => {
     setError("");
     setSuccess("");
 
-    // Prevent student creation if session is "20-24"
     if (formData.role === "student" && formData.session === "20-24") {
       setError("Cannot create students for session 20-24.");
       setLoading(false);
@@ -133,10 +131,8 @@ const CreateUser = () => {
           </select>
         </div>
 
-        {/* Student-Specific Fields */}
         {formData.role === "student" && (
           <>
-            {/* Course Dropdown */}
             <div className="mb-4">
               <label className="block font-medium">Course:</label>
               <select
@@ -152,7 +148,6 @@ const CreateUser = () => {
               </select>
             </div>
 
-            {/* Session Dropdown */}
             <div className="mb-4">
               <label className="block font-medium">Session:</label>
               <select
@@ -171,7 +166,6 @@ const CreateUser = () => {
               </select>
             </div>
 
-            {/* Semester Dropdown (Auto-Updated) */}
             {formData.session && formData.session !== "20-24" && (
               <div className="mb-4">
                 <label className="block font-medium">Semester:</label>

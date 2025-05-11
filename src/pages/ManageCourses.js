@@ -7,7 +7,7 @@ function ManageCourses() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const coursesPerPage = 5; // Pagination control
+  const coursesPerPage = 5;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -49,7 +49,6 @@ function ManageCourses() {
   if (error)
     return <h1 className="text-red-500 text-center mt-6">{error}</h1>;
 
-  // Pagination logic
   const indexOfLastCourse = currentPage * coursesPerPage;
   const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
   const currentCourses = courses.slice(indexOfFirstCourse, indexOfLastCourse);
@@ -100,7 +99,6 @@ function ManageCourses() {
         <p className="text-center text-gray-700 text-xl">No courses available.</p>
       )}
 
-      {/* Pagination Controls */}
       {courses.length > coursesPerPage && (
         <div className="flex justify-center mt-6">
           {Array.from(

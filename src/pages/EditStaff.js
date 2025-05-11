@@ -60,7 +60,6 @@ const EditStaff = () => {
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Name Input */}
           <div>
             <label className="block font-medium text-gray-700">Staff Name:</label>
             <div className="flex items-center border rounded-lg px-3 py-2 bg-gray-50">
@@ -76,7 +75,6 @@ const EditStaff = () => {
             </div>
           </div>
 
-          {/* Old Password (Display Only) */}
           <div>
             <label className="block font-medium text-gray-700">Old Password:</label>
             <div className="flex items-center border rounded-lg px-3 py-2 bg-gray-200 cursor-not-allowed">
@@ -90,7 +88,6 @@ const EditStaff = () => {
             </div>
           </div>
 
-          {/* New Password Input */}
           <div>
             <label className="block font-medium text-gray-700">New Password:</label>
             <div className="flex items-center border rounded-lg px-3 py-2 bg-gray-50">
@@ -106,7 +103,6 @@ const EditStaff = () => {
             </div>
           </div>
 
-          {/* Action Buttons */}
           <div className="flex justify-between">
             <button 
               type="submit" 
