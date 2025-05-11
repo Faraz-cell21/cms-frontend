@@ -51,12 +51,14 @@ function CourseDetails() {
           </div>
           {course.studentsEnrolled.length > 0 ? (
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-2">
-              {course.studentsEnrolled.map((student) => (
-                <li key={student.student._id} className="bg-gray-100 p-3 rounded-md shadow-sm">
-                  <span className="font-medium">{student.student.name}</span> 
-                  <span className="text-gray-500 text-sm block">{student.student.email}</span>
-                </li>
-              ))}
+              {course.studentsEnrolled
+  .filter((entry) => entry.student) // Filter out null students
+  .map((student) => (
+    <li key={student.student._id} className="bg-gray-100 p-3 rounded-md shadow-sm">
+      <span className="font-medium">{student.student.name}</span>
+      <span className="text-gray-500 text-sm block">{student.student.email}</span>
+    </li>
+))}
             </ul>
           ) : (
             <p className="text-gray-500 mt-2">No students enrolled.</p>

@@ -51,8 +51,8 @@ function AboutUs() {
           <div className="text-center mt-6">
             <h3 className="text-xl font-semibold text-gray-800">Join Gomal University</h3>
             <p className="text-gray-600">Be part of a thriving academic community and shape your future.</p>
-            <a href="/" className="mt-4 inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
-              Apply Now
+            <a href="/contact" className="mt-4 inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+              Contact Us
             </a>
           </div>
         </div>
