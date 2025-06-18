@@ -7,6 +7,7 @@ function ProtectedRoute({ children, allowedRoles = [] }) {
 
   if (loading) return <h1>Loading...</h1>;
 
+  // IF USER NOT FOUND
   if (!user) {
     return <Navigate to="/login" />;
   }
